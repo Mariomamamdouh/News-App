@@ -1,6 +1,7 @@
 # news_app
 
 A new Flutter application.
+using Bloc(Cubit) , Dio Api ,Shared Perferences ,Dart ,and Flutter .
 
 ## Getting Started
 
