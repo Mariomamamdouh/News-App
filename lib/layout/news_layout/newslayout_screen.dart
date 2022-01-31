@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/modules/search/search_screen.dart';
 import 'package:news_app/shared/appcubit/appcubit.dart';
 import 'package:news_app/shared/component/component.dart';
-import 'package:news_app/shared/network/remote/dio_helper.dart';
-import 'package:dio/dio.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
@@ -79,6 +77,7 @@ class NewsScreen extends StatelessWidget {
                     unselectedLabelColor: Colors.grey,
                     indicatorColor: Colors.teal,
                     labelColor: Colors.teal,
+
                   ),
                 ),
                 body: TabBarView(children: cubit.screens),

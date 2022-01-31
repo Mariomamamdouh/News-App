@@ -19,14 +19,14 @@ class NewsCubit extends Cubit<NewsState> {
   List<dynamic>search = [];
   List<BottomNavigationBarItem> bottomitems = [
     const BottomNavigationBarItem(
-        icon: Icon(Icons.business), label: "Business"),
+        icon: Icon(Icons.business), label: "Business",),
     const BottomNavigationBarItem(
         icon: Icon(Icons.science_outlined), label: "Science"),
     const BottomNavigationBarItem(
         icon: Icon(Icons.sports_baseball_outlined), label: "Sport"),
   ];
   List<Widget> tabs=[
-  const Tab(text: "Business",),
+  const Tab(text: "Business"),
     const Tab(text: "Science",),
     const Tab(text: "Sport",),
     const Tab(text: "Technology",),
