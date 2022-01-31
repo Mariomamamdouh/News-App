@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:flutter/widgets.dart";
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:news_app/layout/news_layout/cubit/cubit.dart';
+
 import 'package:news_app/modules/webview/web_view_screen.dart';
 import "package:flutter/painting.dart";
 import 'package:news_app/shared/appcubit/appcubit.dart';
@@ -36,12 +36,15 @@ Widget ArticleItem(article, context) => InkWell(
                   children: [
                     Expanded(
                       child: Text("${article['title']}",
+                          textAlign: TextAlign.right,
                           style: Theme.of(context).textTheme.bodyText1,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis),
+
                     ),
                     Text(
                       "${article['publishedAt']}",
+                      textAlign: TextAlign.start,
                       style: TextStyle(color: Colors.grey),
                     ),
                   ],
@@ -78,22 +81,22 @@ Widget ListArticleItems(list, {isSearch = false}) => ConditionalBuilder(
                         borderRadius: BorderRadius.circular(20.0),
                         color: Colors.teal),
                   ),
-                 const   SizedBox(height: 30.0),
-                    Container(
-                      height: 4.0,
-                      width: 120.0,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.grey),
-                    ),
-                    const   SizedBox(height: 30.0),
-                    Container(
-                      height: 4.0,
-                      width: 120.0,
-                      decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.grey),
-                    ),
+                  const SizedBox(height: 30.0),
+                  Container(
+                    height: 4.0,
+                    width: 120.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.grey),
+                  ),
+                  const SizedBox(height: 30.0),
+                  Container(
+                    height: 4.0,
+                    width: 120.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.grey),
+                  ),
                 ]))
           : const Center(child: CircularProgressIndicator()),
     );
@@ -141,7 +144,6 @@ Widget defaultTextFormField({
           : OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
               borderRadius: BorderRadius.circular(25.0)),
-
       focusedBorder: dark
           ? OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.white, width: 2.0),
@@ -151,7 +153,11 @@ Widget defaultTextFormField({
               borderSide: const BorderSide(color: Colors.white54, width: 2.0),
               borderRadius: BorderRadius.circular(25.0),
             ),
-
     ),
   );
 }
+
+void NavigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) => widget),
+    (Route<dynamic> route) => false);
